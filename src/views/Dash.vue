@@ -115,7 +115,7 @@
 
       const completedCount = computed(() => {
         const tasks = store.state.tasks.tasks;
-        const tasksCompleted = tasks.filter((task) => task.completed).length;
+        const tasksCompleted = tasks.filter((task: Task) => task.completed).length;
         return tasks.length - tasksCompleted;
       });
 
@@ -141,6 +141,7 @@
 <style lang="stylus" scoped>
   .dash
     z-index 0
+    min-height 100vh
 
     h1
       font-family 'Gilroy-Bold', sans-serif

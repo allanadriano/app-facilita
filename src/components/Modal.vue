@@ -36,14 +36,10 @@
         default: false,
       },
     },
-    setup(props, { emit }) {
-      const closeModal = () => {
-        emit('close');
-      };
-
-      return {
-        closeModal,
-      };
+    methods: {
+      closeModal() {
+        this.$emit('close');
+      },
     },
   });
 </script>
@@ -79,4 +75,10 @@
 
       &:hover
         background-color var(--azure-color)
+
+  @media screen and (max-width 768px)
+    .modal
+      &--medium,
+      &--small
+        max-width 90%
 </style>

@@ -1,9 +1,12 @@
-import { RootState } from '../types/vuex';
 import { Module, MutationTree, ActionTree } from 'vuex';
 import { Task } from '../../types/Task';
 
 interface TasksState {
   tasks: Task[];
+}
+
+interface RootState {
+  tasks: TasksState;
 }
 
 const state: TasksState = {
@@ -32,7 +35,7 @@ const mutations: MutationTree<TasksState> = {
     localStorage.setItem('tasks', JSON.stringify(state.tasks));
   },
 
-  SEARCH_TASKS({ state }: { state: TasksState }, searchTerm: string): Task[] {
+  SEARCH_TASKS(state: TasksState, searchTerm: string): Task[] {
     const term = searchTerm.toLowerCase();
 
     return state.tasks.filter((task) => {
@@ -49,13 +52,13 @@ const mutations: MutationTree<TasksState> = {
   SORT_TASKS(state: TasksState, sortBy: string) {
     switch (sortBy) {
       case 'completed':
-        state.tasks.sort((a, b) => (a.completed ? -1 : 1));
+        state.tasks.sort((a) => (a.completed ? -1 : 1));
         break;
       case 'urgent':
-        state.tasks.sort((a, b) => (a.status === 'Urgente' ? -1 : 1));
+        state.tasks.sort((a) => (a.status === 'Urgente' ? -1 : 1));
         break;
       case 'important':
-        state.tasks.sort((a, b) => (a.status === 'Importante' ? -1 : 1));
+        state.tasks.sort((a) => (a.status === 'Importante' ? -1 : 1));
         break;
       case 'other':
         state.tasks.sort((a, b) => {
@@ -103,7 +106,7 @@ const actions: ActionTree<TasksState, RootState> = {
 
   SEARCH_TASKS({ commit, state }: any, searchTerm: string) {
     const filteredTasks = state.tasks.filter(
-      (task) =>
+      (task: Task) =>
         task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         task.description.toLowerCase().includes(searchTerm.toLowerCase()),
     );

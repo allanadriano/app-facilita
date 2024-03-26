@@ -8,7 +8,7 @@
       <label>Descrição:</label>
       <textarea v-model="formData.description" cols="30" rows="10" class="form-control"></textarea>
     </div>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between flex-wrap">
       <div class="d-flex align-items-start">
         <div class="d-flex align-items-center">
           <input type="radio" value="Urgente" v-model="formData.status" />
@@ -65,3 +65,10 @@
     },
   });
 </script>
+
+<style lang="stylus" scoped>
+  @media screen and (max-width 768px)
+    button
+      width 100%
+      margin-top 18px
+</style>

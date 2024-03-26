@@ -19,13 +19,12 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, EmitsOptions } from 'vue';
+  import { defineComponent } from 'vue';
   import Modal from '../components/Modal.vue';
 
   export default defineComponent({
     name: 'ModalConfirm',
     components: { Modal },
-    emits: ['close', 'confirm'] as EmitsOptions,
     methods: {
       closeModal() {
         this.$emit('close');

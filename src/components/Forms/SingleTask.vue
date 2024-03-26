@@ -71,7 +71,7 @@
       },
     },
 
-    setup(props) {
+    setup() {
       const store = useStore();
       const isTaskModalOpen = ref(false);
       const isModalConfirmOpen = ref(false);
@@ -89,9 +89,11 @@
         toggleTaskModal();
       };
 
-      const handleDeleteTask = (id: string) => {
-        store.dispatch('DELETE_TASK', id);
-        toggleConfirmModal();
+      const handleDeleteTask = (id: string | undefined) => {
+        if (id) {
+          store.dispatch('DELETE_TASK', id);
+          toggleConfirmModal();
+        }
       };
 
       const markTaskCompleted = (task: Task) => {

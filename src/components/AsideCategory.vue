@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, EmitsOptions, computed } from 'vue';
+  import { defineComponent, computed } from 'vue';
   import Badge from './Badge.vue';
   import { useStore } from 'vuex';
   import { Task } from '../types/Task';
@@ -39,12 +39,12 @@
   export default defineComponent({
     name: 'AsideCategory',
     components: { Badge },
-    emits: ['filter-tasks'] as EmitsOptions,
-    setup({ emit }) {
-      const sortTasks = (sortBy: string) => {
-        emit('filter-tasks', sortBy);
-      };
-
+    methods: {
+      sortTasks(sortBy: string) {
+        this.$emit('filter-tasks', sortBy);
+      },
+    },
+    setup() {
       const store = useStore();
 
       const urgentCount = computed(() => {
@@ -57,7 +57,7 @@
         return tasks.filter((task: Task) => task.status === 'Importante').length;
       });
 
-      return { sortTasks, urgentCount, importantCount };
+      return { urgentCount, importantCount };
     },
   });
 </script>

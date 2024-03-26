@@ -8,24 +8,21 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, EmitsOptions } from 'vue';
+  import { defineComponent } from 'vue';
 
   export default defineComponent({
     name: 'InputSearch',
-    emits: ['search'] as EmitsOptions,
-    setup(props, { emit }) {
-      const searchTerm = ref('');
-
-      const search = () => {
-        if (searchTerm.value.trim() !== '') {
-          emit('search', searchTerm.value.trim());
-        }
-      };
-
+    data() {
       return {
-        searchTerm,
-        search,
+        searchTerm: '',
       };
+    },
+    methods: {
+      search() {
+        if (this.searchTerm.trim() !== '') {
+          this.$emit('search', this.searchTerm.trim());
+        }
+      },
     },
   });
 </script>
