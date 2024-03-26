@@ -1,0 +1,11 @@
+$fontName = 'Gilroy'
+$fontStylesNames = 'Black', 'Bold', 'Italic', 'Light', 'Medium', 'Regular', 'SemiBold', 'Thin'
+$baseFontPath = '../fonts/SVN-Gilroy '
+$ext = '.ttf'
+
+for $fontType in $fontStylesNames
+    @font-face 
+        font-family unquote("'" + $fontName + '-' + $fontType + "'")
+        font-style normal
+        src: url($baseFontPath + $fontType + $ext) format('truetype')
+    

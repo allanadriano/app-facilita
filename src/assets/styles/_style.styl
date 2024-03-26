@@ -1,0 +1,133 @@
+body 
+    font-family 'Gilroy-Regular', sans-serif
+    font-size 16px
+
+.btn
+    padding 14px 24px 
+    border-radius 5px
+    color var(--white-color)
+    min-width 118px
+
+    &:disabled
+        background var(--serene-sky-blue)
+        cursor not-allowed
+
+.btn-circle
+    width 77px
+    height 77px
+    border-radius 50%
+    box-shadow 0px 3px 20px rgba(130, 153, 166, 0.25)
+    right 40px
+    bottom 40px
+
+input,
+textarea
+    appearance none
+    border none
+    border 2px solid var(--soft-blue-color)
+    background-color transparent
+
+    &:focus,
+    &:focus-visible
+        border-color var(--blue-color)
+
+    &.form-control
+        margin-top 4px
+        padding 16px
+        width 100%
+        border-radius 5px
+        color var(--dark-slate-blue-color)
+        margin-bottom 20px
+
+        &:placeholder 
+            color var(--serene-sky-blue-color)
+
+input
+    &[type='radio']
+        margin-right 8px
+        width 24px
+        height 24px
+        cursor pointer
+        border-radius 50%
+        padding 5px        
+
+        &:checked
+            &::after
+                content ''
+                display block
+                position absolute
+                width 10px
+                height 10px
+                background-color var(--blue-color)
+                border-radius 50%
+    
+    &[type='checkbox']
+        width 32px
+        height 32px
+        cursor pointer
+        background var(--shade-blue-color)
+        border-radius 3px
+        border-width 0px
+        margin-right 8px
+        transition background-color 0.3s ease, color 0.3s ease
+
+        &:checked
+            &::after
+                content ''
+                display block
+                position absolute
+                width 32px
+                height 32px
+                border-radius 3px
+                background-color var(--green-color)
+                background-image url('../icons/check-icon.svg')
+                background-repeat no-repeat
+                background-position center
+
+label
+    font-family 'Gilroy-SemiBold', sans-serif
+    font-size 15px
+    color var(--steel-blue-color)
+    margin-right 16px
+
+.chevron-icon
+    display flex
+    width 5px
+    height 8px
+    background-color var(--dark-slate-blue-color)
+    mask-image url('../icons/chevron-icon.svg')
+    mask-repeat no-repeat
+
+.box-shadow
+    box-shadow 1px 1px 6px rgba(40, 56, 72, 0.07);
+
+
+@media screen and (max-width 992px)
+    .btn, input, textarea
+        font-size 14px
+                    
+    .btn-circle
+       width 57px
+       height 57px
+       right 30px
+       bottom 30px
+
+       img
+        width 18px
+
+
+@media screen and (max-width 768px)
+    body
+        font-size 14px
+
+    .btn, input, textarea
+        font-size 12px
+        
+    .btn-circle
+       width 47px
+       height 47px
+       right 20px
+       bottom 20px
+
+       img
+        width 12px
