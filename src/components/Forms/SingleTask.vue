@@ -116,18 +116,25 @@
 
 <style lang="stylus" scoped>
   .completed
-    cursor not-allowed
-    input,
     &.task
-      opacity 0.7
-    input,
-    .action
-      cursor: not-allowed
-
+      &.white-bg-color
+        background-color var(--white-color-opacity-50)
+      input[type='checkbox']
+        cursor not-allowed
+        &:checked
+          &::after
+            background-color var(--green-color-opacity-50)
+    .badge
+      color var(--white-color-opacity-50)
+      &.red-bg-color
+        background-color var(--red-color-opacity-50)
+      &.yellow-bg-color
+        background-color var(--yellow-color-opacity-50)
 
     label
       &.title
         text-decoration line-through
+        color var(--steel-blue-color-opacity-50)
   form
       padding 16px
       margin-bottom 10px

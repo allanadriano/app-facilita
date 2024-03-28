@@ -29,7 +29,7 @@
   });
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   .badge
     font-family 'Gilroy-Bold', sans-serif
     color var(--white-color)
