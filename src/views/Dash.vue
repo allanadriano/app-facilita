@@ -141,7 +141,7 @@
 <style lang="stylus" scoped>
   .dash
     z-index 0
-    min-height 100vh
+    min-height calc(100vh + 83px)
 
     h1
       font-family 'Gilroy-Bold', sans-serif
@@ -163,11 +163,15 @@
       max-width 633px
 
   @media screen and (max-width 992px)
+    .dash
+      min-height cal(100vh + 106px)
     .content
       padding 40px
       margin auto
 
   @media screen and (max-width 768px)
+    .dash
+      min-height cal(100vh + 105px)
     .content
       padding 20px
       margin auto
