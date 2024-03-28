@@ -141,7 +141,7 @@
 <style lang="stylus" scoped>
   .dash
     z-index 0
-    min-height calc(100vh + 83px)
+    min-height 100vh
 
     h1
       font-family 'Gilroy-Bold', sans-serif
