@@ -97,11 +97,13 @@ const actions: ActionTree<TasksState, RootState> = {
     commit('DELETE_TASK', taskId);
   },
 
-  async INITIALIZE_STORE({ commit }: any) {
-    const tasksData = localStorage.getItem('tasks');
-    if (tasksData) {
-      commit('SET_TASKS', JSON.parse(tasksData));
+  INITIALIZE_STORE({ commit }: any) {
+    let tasksData = localStorage.getItem('tasks');
+    if (!tasksData) {
+      localStorage.setItem('tasks', JSON.stringify([]));
+      tasksData = '[]';
     }
+    commit('SET_TASKS', JSON.parse(tasksData));
   },
 
   SEARCH_TASKS({ commit, state }: any, searchTerm: string) {
